@@ -3,12 +3,12 @@ using System.Net;
 using Xunit;
 using GradeBook;
 
-namespace test
+namespace GradeBook.Tests
 {
     public class BookTests
     {
         [Fact]
-        public void Test1()
+        public void BookCalculatesAnAverageGrade()
         {
             //arrage - where you put together all your test data and you arrange the objects and values you are going to use
             var book = new Book("");

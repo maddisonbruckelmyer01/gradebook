@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using Xunit;
+using GradeBook;
 
 namespace test
 {
@@ -18,9 +19,9 @@ namespace test
 
             var result = book.GetStatistics();
             //assert - where you assert something about the value that was computed inside of act  
-            Assert.Equal(85.6, result.Average);
-            Assert.Equal(90.5, result.High);
-            Assert.Equal(77.3, result.Low);
+            Assert.Equal(85.6, result.Average, 1);
+            Assert.Equal(90.5, result.High, 1);
+            Assert.Equal(77.3, result.Low, 1);
         }
     }
 }

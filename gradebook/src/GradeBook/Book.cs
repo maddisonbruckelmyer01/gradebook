@@ -2,7 +2,7 @@
 using System;
 using System.Net.NetworkInformation;
 
-namespace gradebook
+namespace GradeBook
 {
     public class Book
     {
@@ -40,6 +40,8 @@ namespace gradebook
             }
 
             result.Average /= grades.Count;
+
+            return result;
         }
 
         private List<double> grades;

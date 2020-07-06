@@ -1,6 +1,6 @@
 using System.Security.Permissions;
 
-namespace gradebook
+namespace GradeBook
 {
 	public class Statistics
     {

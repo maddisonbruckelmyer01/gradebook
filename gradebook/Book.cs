@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System;
-
+using System.Net.NetworkInformation;
 
 namespace gradebook
 {
-    class Book
+    public class Book
     {
 
         public Book(string name) 
          {
             grades = new List<double>();
+
             this.name = name; 
         }
 
@@ -18,28 +19,27 @@ namespace gradebook
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public Statistics GetStatistics()
         {
-            var result = 0.0;
 
-            var highGrade = double.MinValue;
+            var result = new Statistics();
 
-            var lowGrade = double.MaxValue;
+            result.Average = 0.0;
 
-            foreach (double number in grades)
+            result.High = double.MinValue;
+
+            result.Low = double.MaxValue;
+
+            foreach (double grade in grades)
             {
-                lowGrade = Math.Min(number, lowGrade);
-                highGrade = Math.Max(number, highGrade);
-                // if (number > highGrade) {
-                //   highGrade = number;
-                //  }
-                result += number;
+                result.Low = Math.Min(grade, result.Low);
+
+                result.High = Math.Max(grade, result.High);
+             
+                result.Average += grade;
             }
 
-            result = result / grades.Count;
-            Console.WriteLine($"The lowest grade is {lowGrade}");
-            Console.WriteLine($"The higest grade is {highGrade}");
-            Console.WriteLine($"The average grade is {result:N1}");
+            result.Average /= grades.Count;
         }
 
         private List<double> grades;

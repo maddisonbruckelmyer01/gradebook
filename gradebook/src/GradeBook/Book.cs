@@ -98,10 +98,10 @@ namespace GradeBook
          public string Name 
          {
             get;
-            private set;
+            set;
           }
        
-        readonly string category = "Science";
+        const string CATEGORY = "Science"; 
 
     }
 }
